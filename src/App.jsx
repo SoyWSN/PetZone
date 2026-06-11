@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Navbar      from "./components/Navbar";
 import PageContent from "./components/PageContent";
+import NotFound    from "./components/NotFound";
 import { PAGES }   from "./data/store";
 import "./styles/global.css";
 
@@ -19,16 +20,14 @@ export default function App() {
       <Navbar cartCount={0} onNavigate={navigate} />
 
       <main className="main-content">
-        <PageContent page={currentPage} onNavigate={navigate} />
+        {PAGES[currentPage]
+          ? <PageContent page={currentPage} onNavigate={navigate} />
+          : <NotFound onNavigate={navigate} />
+        }
       </main>
 
       <footer className="footer">
-        {/* Reemplaza con tu logo real: <img src={logo} alt="PetZone" className="footer__logo" /> */}
-        <img
-          src="/img/logo2.png"
-          alt="PetZone"
-          className="footer__logo"
-        />
+        <img src="/img/logo2.png" alt="PetZone" className="footer__logo" />
         <p className="footer__text">© 2026 PetZone — Todos los derechos reservados</p>
       </footer>
     </div>

@@ -1,0 +1,215 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>404 — Página no encontrada | PetZone</title>
+  <link rel="icon" type="image/png" href="/img/favicon.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html {
+      background-color: #f8f9fb;
+    }
+
+    body {
+      font-family: 'Nunito', sans-serif;
+      background-color: transparent;
+      background-image:
+        linear-gradient(70deg, #b0b0c0 1px, transparent 1px),
+        linear-gradient(160deg, #b0b0c0 1px, transparent 1px);
+      background-size: 40px 40px;
+      background-attachment: fixed;
+      color: #1a1a2e;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* ── NAVBAR ── */
+    .navbar {
+      background: rgba(255,255,255,0.92);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid #e8e8f0;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+      padding: 0 clamp(24px, 5vw, 80px);
+    }
+    .navbar__inner {
+      max-width: 1440px;
+      margin: 0 auto;
+      height: 80px;
+      display: flex;
+      align-items: center;
+    }
+    .navbar__logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+    }
+    .navbar__logo-img {
+      width: 48px;
+      height: 48px;
+      object-fit: contain;
+    }
+    .navbar__logo-text {
+      font-family: 'Fredoka One', cursive;
+      font-size: 28px;
+      color: #1a1a2e;
+      letter-spacing: -0.5px;
+    }
+    .navbar__logo-text span { color: #FF6B35; }
+
+    /* ── MAIN ── */
+    .main {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 48px clamp(24px, 5vw, 80px);
+    }
+
+    .card {
+      background: #fff;
+      border: 1px solid #e8e8f0;
+      border-radius: 28px;
+      box-shadow: 0 8px 40px rgba(0,0,0,0.08);
+      padding: clamp(40px, 6vw, 72px) clamp(32px, 6vw, 80px);
+      max-width: 560px;
+      width: 100%;
+      text-align: center;
+    }
+
+    .card__code {
+      font-family: 'Fredoka One', cursive;
+      font-size: clamp(80px, 18vw, 140px);
+      line-height: 1;
+      color: #f0f0f5;
+      letter-spacing: -4px;
+      user-select: none;
+      margin-bottom: 4px;
+      /* Accent: the "0" in the middle takes the brand color */
+      background: linear-gradient(135deg, #f0f0f5 35%, #FF6B35 50%, #f0f0f5 65%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .card__title {
+      font-family: 'Fredoka One', cursive;
+      font-size: clamp(22px, 4vw, 30px);
+      color: #1a1a2e;
+      margin-bottom: 12px;
+    }
+
+    .card__description {
+      font-size: 15px;
+      color: #888;
+      line-height: 1.6;
+      margin-bottom: 36px;
+      max-width: 380px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .card__actions {
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #FF6B35, #FF9F1C);
+      color: #fff;
+      border: none;
+      border-radius: 12px;
+      padding: 13px 28px;
+      font-size: 15px;
+      font-weight: 800;
+      font-family: 'Nunito', sans-serif;
+      cursor: pointer;
+      text-decoration: none;
+      box-shadow: 0 6px 18px rgba(255,107,53,0.35);
+      transition: opacity 0.15s;
+      display: inline-block;
+    }
+    .btn-primary:hover { opacity: 0.88; }
+
+    .btn-secondary {
+      background: #fff;
+      color: #444460;
+      border: 1.5px solid #e0e0ee;
+      border-radius: 12px;
+      padding: 13px 28px;
+      font-size: 15px;
+      font-weight: 700;
+      font-family: 'Nunito', sans-serif;
+      cursor: pointer;
+      text-decoration: none;
+      transition: border-color 0.15s, color 0.15s;
+      display: inline-block;
+    }
+    .btn-secondary:hover { border-color: #FF6B35; color: #FF6B35; }
+
+    .card__divider {
+      width: 48px;
+      height: 3px;
+      background: linear-gradient(90deg, #FF6B35, #FF9F1C);
+      border-radius: 2px;
+      margin: 0 auto 24px;
+    }
+
+    /* ── FOOTER ── */
+    .footer {
+      background: #fff;
+      border-top: 1px solid #e8e8f0;
+      padding: 20px 32px;
+      text-align: center;
+      font-size: 13px;
+      color: #bbb;
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 480px) {
+      .card__actions { flex-direction: column; align-items: stretch; }
+      .btn-primary, .btn-secondary { text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="navbar">
+    <div class="navbar__inner">
+      <a href="/" class="navbar__logo">
+        <img src="/img/logo2.png" alt="PetZone" class="navbar__logo-img" />
+        <span class="navbar__logo-text">Pet<span>Zone</span></span>
+      </a>
+    </div>
+  </header>
+
+  <main class="main">
+    <div class="card">
+      <p class="card__code">404</p>
+      <div class="card__divider"></div>
+      <h1 class="card__title">Página no encontrada</h1>
+      <p class="card__description">
+        La página que buscas no existe o fue movida a otra dirección.
+        Regresa al inicio y encuentra todo lo que tu mascota necesita.
+      </p>
+      <div class="card__actions">
+        <a href="/" class="btn-primary">Ir al inicio</a>
+        <a href="/tienda" class="btn-secondary">Ver tienda</a>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <p>© 2026 PetZone — Todos los derechos reservados</p>
+  </footer>
+
+</body>
+</html>
