@@ -6,11 +6,17 @@ import { PAGES }   from "./data/store";
 import "./styles/global.css";
 
 export default function App() {
-  const [currentPage, setCurrentPage] = useState("home");
+  const getInitialPage = () => {
+    const path = window.location.pathname.replace("/", "") || "home";
+    return PAGES[path] !== undefined ? path : "404";
+  };
+
+  const [currentPage, setCurrentPage] = useState(getInitialPage);
 
   const navigate = (page) => {
     if (PAGES[page] !== undefined) {
       setCurrentPage(page);
+      window.history.pushState({}, "", `/${page === "home" ? "" : page}`);
       window.scrollTo({ top: 0, behavior: "smooth" });
     }
   };
@@ -20,9 +26,9 @@ export default function App() {
       <Navbar cartCount={0} onNavigate={navigate} />
 
       <main className="main-content">
-        {PAGES[currentPage]
-          ? <PageContent page={currentPage} onNavigate={navigate} />
-          : <NotFound onNavigate={navigate} />
+        {currentPage === "404"
+          ? <NotFound onNavigate={navigate} />
+          : <PageContent page={currentPage} onNavigate={navigate} />
         }
       </main>
 
